@@ -1,0 +1,24 @@
+#programmer- lakshya kachhwaha
+#digital clock
+# importing necessary packages
+import tkinter as tk
+from tkinter import*
+from time import strftime
+#defining createWidgets() create widgets for displaying time amd date
+def Createwidgets():
+    #creating  a lable for displaying today'date
+    root.dateLabel = Label(root, font=("Helvetica",30),bg="black",fg="aqua",text="DATE:"+strftime("%d/%m/%y"))
+    root.dateLabel.grid(sticky="nw")
+    root.timeLabel=Label(root,font=("Helvetica",50), bg="black",fg="aqua")
+    root.timeLabel.grid(sticky="news")
+    #calling the updatetime()
+    updateTime()
+def updateTime():
+             root.timeLabel.config(text=strftime("%H:%M:%S"))
+             root.timeLabel.after(1000,updateTime)
+root=tk.Tk()
+root.title("DIGITAL CLOCK")
+root.config(bg="slategray4")
+root.resizable(False,False)
+Createwidgets()
+root.mainloop()
